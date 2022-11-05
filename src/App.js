@@ -1,4 +1,3 @@
-import React from "react";
 import "./App.css";
 import AddCalendarItem from "./components/AddCalendarItem/AddCalendarItem";
 import Header from "./components/header/Header";
