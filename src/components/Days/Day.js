@@ -8,18 +8,16 @@ import {
 import { useSelector } from "react-redux";
 import CalendarItem from "../CalendarItem/CalendarItem";
 import { DateTime } from "luxon";
+import { TimeIndicator } from "../TimeIndicator/TimeIndicator";
 
 function Day({ title, date, parent, currentMonth, dateMonth }) {
-  const hourCount = 25;
+  const hourCount = 24;
   const calendarItems = useSelector(selectcalendarItems);
   var dayVariable = useSelector(selectDayVariable);
 
   if (parent === "day") {
     date = DateTime.now().set({ day: dayVariable }).day;
   }
-
-  var timeIndicatorTop =
-    (DateTime.now().hour * 60 + DateTime.now().minute) * 1.33 + 28;
 
   return (
     <div
@@ -30,10 +28,8 @@ function Day({ title, date, parent, currentMonth, dateMonth }) {
           : "day__enabled")
       }
     >
-      <div
-        className="current__time__indicator"
-        style={{ "--indicator-top": `${timeIndicatorTop}px` }}
-      ></div>
+      <TimeIndicator parent={parent}/>
+
       <p className="day__title">
         {parent === "week" && <span>{title} </span>}
 
@@ -45,27 +41,24 @@ function Day({ title, date, parent, currentMonth, dateMonth }) {
       </p>
 
       {parent === "month" &&
-        calendarItems.map((item) => {
-          if (item.date === date + dateMonth) {
-            return (
-              <CalendarItem
-                id={item.key}
-                title={item.title}
-                startTime={item.startingTime}
-                endTime={item.endTime}
-                parent="month"
-              />
-            );
-          } else {
-            return "";
-          }
-        })}
+        calendarItems
+          .filter(item => item.date === date + dateMonth)
+          .map((item) => 
+            <CalendarItem
+              id={item.key}
+              title={item.title}
+              startTime={item.startingTime}
+              endTime={item.endTime}
+              parent="month"
+            />
+          )
+      }
 
       {parent !== "month" &&
         [...Array(hourCount)].map((elementInArray, index) => (
           <Hour
             date={date}
-            dateMonth={DateTime.now().monthLong}
+            dateMonth={dateMonth}
             key={index}
             time={index < 10 ? `0${index}:00` : index + ":00"}
             parent="week"

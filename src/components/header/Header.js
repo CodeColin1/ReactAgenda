@@ -19,31 +19,18 @@ function Header() {
   var localMonthVariable = useSelector(selectMonthVariable);
   var localDayVariable = useSelector(selectDayVariable);
 
-  const addToCounter = () => {
+  const addToCounter = (increment) => {
     if (window.location.pathname === "/") {
-      localWeekVariable += 1;
+      localWeekVariable += increment;
       dispatch(weekNumberCounter(localWeekVariable));
     } else if (window.location.pathname === "/month") {
-      localMonthVariable += 1;
+      localMonthVariable += increment;
       dispatch(monthNumberCounter(localMonthVariable));
     } else if (window.location.pathname === "/day") {
-      localDayVariable += 1;
+      localDayVariable += increment;
       dispatch(dayNumberCounter(localDayVariable));
     }
-  };
-
-  const substractFromCounter = () => {
-    if (window.location.pathname === "/") {
-      localWeekVariable -= 1;
-      dispatch(weekNumberCounter(localWeekVariable));
-    } else if (window.location.pathname === "/month") {
-      localMonthVariable -= 1;
-      dispatch(monthNumberCounter(localMonthVariable));
-    } else if (window.location.pathname === "/day") {
-      localDayVariable -= 1;
-      dispatch(dayNumberCounter(localDayVariable));
-    }
-  };
+  }
 
   return (
     <div className="header">
@@ -84,11 +71,11 @@ function Header() {
           </button>
         </div>
         <div className="header__button__navigation">
-          <div className="header__button" onClick={substractFromCounter}>
+          <div className="header__button" onClick={() => addToCounter(-1)}>
             Vorige
           </div>
 
-          <div className="header__button" onClick={addToCounter}>
+          <div className="header__button" onClick={() => addToCounter(1)}>
             Volgende
           </div>
         </div>

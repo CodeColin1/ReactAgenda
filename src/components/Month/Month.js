@@ -1,6 +1,6 @@
 import React from "react";
 import "./Month.css";
-import Week from "../weeks/Week";
+import Week from "../Weeks/Week";
 import { DateTime } from "luxon";
 import { useSelector } from "react-redux";
 import { selectMonthVariable } from "../../features/calendarSlice";
@@ -43,6 +43,7 @@ function Month({ monthNameLong, monthIndex, parent }) {
           <p className="month__legenda__title">Z</p>
         </div>
       )}
+      {}
       {parent !== "year" && (
         <div className="month__days__container">
           <Week parent="month" weekNumbers={week} currentMonth={monthName} />
