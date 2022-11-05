@@ -1,0 +1,26 @@
+.week {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  position: relative;
+}
+
+.current__time__indicator {
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: red;
+  left: -3px;
+  top: var(--indicator-top);
+  z-index: 1;
+}
+
+.current__time__indicator:before {
+  content: "";
+  position: absolute;
+  height: 6px;
+  width: 6px;
+  background-color: red;
+  border-radius: 100%;
+  top: -2px;
+}

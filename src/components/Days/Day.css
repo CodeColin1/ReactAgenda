@@ -1,0 +1,22 @@
+.day {
+  flex: 1 1 0px;
+  flex-basis: 0;
+  margin-right: -1px;
+}
+
+.day-view .day {
+  position: relative;
+}
+
+.day__title {
+  text-align: center;
+  margin-bottom: 10px;
+  background-color: white;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+.day__disabled {
+  opacity: 0.6;
+}

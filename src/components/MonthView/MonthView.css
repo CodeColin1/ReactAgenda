@@ -1,0 +1,8 @@
+.monthview {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.monthview .current__time__indicator {
+  display: none;
+}

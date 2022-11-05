@@ -1,0 +1,45 @@
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 20px;
+}
+
+.header__blok {
+  width: 50%;
+  display: flex;
+  align-items: center;
+}
+
+.header__button {
+  appearance: none;
+  background-color: white;
+  border: 1px solid #c3c3c3;
+  padding: 10px;
+  margin-right: -1px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.header__button:hover {
+  background-color: #c3c3c3;
+}
+
+.header__button__container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.header__button--left {
+  border-radius: 5px 0 0 5px;
+}
+
+.header__button--right {
+  border-radius: 0 5px 5px 0;
+}
+
+.header__button__navigation {
+  display: flex;
+  align-items: center;
+  margin-left: 20px;
+}

@@ -1,0 +1,22 @@
+.calendaritem {
+  background-color: rgba(255, 167, 35, 0.573);
+  min-height: calc(81px - 10px);
+  padding: 5px;
+  border-radius: 5px;
+  border-left: 4px solid rgba(255, 167, 35);
+}
+
+.calendaritem__time {
+  font-size: 14px;
+  margin-bottom: 2px;
+}
+
+.calendaritem.month {
+  display: flex;
+  min-height: auto;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+.calendaritem.month * {
+  font-size: 12px;
+}

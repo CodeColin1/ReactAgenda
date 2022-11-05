@@ -1,0 +1,21 @@
+.yearview {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.yearview .month {
+  max-width: calc(25% - 20px);
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+
+.yearview .month .day {
+  min-height: 0;
+  border: none;
+  padding: 0;
+}
+
+.yearview .day__month,
+.yearview .calendaritem.month {
+  display: none;
+}
